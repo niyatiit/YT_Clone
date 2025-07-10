@@ -1,0 +1,15 @@
+{
+  "name": "yt_clone_backend",
+  "version": "1.0.0",
+  "description": "I am starting my backend journy again with chai aur code - youtube",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "backend"
+  ],
+  "author": "Niyati Patel",
+  "license": "ISC"
+}
