@@ -7,14 +7,24 @@
 // this is the best approch to use the dotenv file using the import
 import dotenv from "dotenv"
 import connectDB from "./db/index.js"
+import {app} from "./app.js"
 
 dotenv.config({
     path : './env'
 })
 
 connectDB()
+.then(() =>{
+    app.listen(process.env.PORT || 8000, () =>{
+        console.log(`Server is running at port ${process.env.PORT}`)
+    })
+})
+.catch((err) => {
+    console.log("Mongodb connection Failed !! " , err)
+})
 
-// this is the first aproch 
+
+// this is the first aproch connect the mongodb
 /*
 ;(async () => {
     try{
