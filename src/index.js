@@ -23,7 +23,6 @@ connectDB()
     console.log("Mongodb connection Failed !! " , err)
 })
 
-
 // this is the first aproch connect the mongodb
 /*
 ;(async () => {

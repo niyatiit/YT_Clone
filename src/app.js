@@ -33,7 +33,9 @@ app.use(express.static("public"))
 app.use(cookieParser())
 
 
-
+app.get('/' , (req , res) => {
+    res.send("Hello this is my backend File")
+})
 export  { app }
 
 
