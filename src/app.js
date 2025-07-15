@@ -32,10 +32,14 @@ app.use(express.static("public"))
 // Activates cookie-parser so every request 
 app.use(cookieParser())
 
+// Routes imoprt 
+import userRouter from "./routes/user.routes.js" 
 
-app.get('/' , (req , res) => {
-    res.send("Hello this is my backend File")
-})
+
+
+// Routes Declaration
+app.use("/api/v1/users" , userRouter)
+
 export  { app }
 
 
