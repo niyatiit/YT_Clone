@@ -23,7 +23,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   // 1. get the user details
   const { username, email, fullName, password } = req.body;
-  console.log("username : ", username, "email : ", email);
+  console.log("username : ", username, "email : ", email , "fullName : " , fullName , "Password : " , password);
 
   // 2. validation  - i) not empty
   //   this is using begginers and check all the field
@@ -44,7 +44,7 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 
   // 3. check if user already exits : username , email
-  const existedUser = User.findOne({
+  const existedUser =await User.findOne({
     // this method is checking the mutliple fields using the $or
     $or: [{ username }, { email }],
   });
@@ -57,6 +57,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const coverImageLocalPath = req.files?.coverImage[0]?.path;
 
   if (!avatarLocalPath) {
+    console.log("Avatar Local Path : " , avatarLocalPath)
     throw new apiError(400, "Avatar file is require");
   }
   // 5. upload them to cloudinary , avatar
@@ -65,6 +66,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const coverImage = await uploadedOnCloudinary(coverImageLocalPath);
 
   if (!avatar) {
+    console.log("Uploaded avatar: ", avatar);
     throw new apiError(400, " Avatar is required");
   }
 
